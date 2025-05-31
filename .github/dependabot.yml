@@ -1,0 +1,30 @@
+version: 2
+updates:
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "chore"
+
+  - package-ecosystem: "gomod"
+    directory: "/modulea"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "chore(modulea)"
+
+  - package-ecosystem: "gomod"
+    directory: "/moduleb"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "chore(moduleb)"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
