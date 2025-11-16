@@ -29,6 +29,16 @@ build:
 format:
 	@echo "Formatting code..."
 	@gofmt -s -w .
+	@if command -v goimports >/dev/null 2>&1; then \
+		goimports -w .; \
+	else \
+		echo "goimports not installed, skipping goimports"; \
+	fi
+	@if command -v golines >/dev/null 2>&1; then \
+		golines -w .; \
+	else \
+		echo "golines not installed, skipping golines"; \
+	fi
 	@for dir in $(COMPONENTS); do \
 		$(MAKE) -C $$dir format || exit 1; \
 	done
