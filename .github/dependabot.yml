@@ -1,30 +1,38 @@
 version: 2
 updates:
-  - package-ecosystem: "gomod"
-    directory: "/"
+  - package-ecosystem: gomod
+    directory: /
     schedule:
-      interval: "weekly"
+      interval: weekly
     commit-message:
-      prefix: "chore"
-
-  - package-ecosystem: "gomod"
-    directory: "/modulea"
+      prefix: chore
+  - package-ecosystem: gomod
+    directory: /modulea
     schedule:
-      interval: "weekly"
+      interval: weekly
     commit-message:
-      prefix: "chore(modulea)"
-
-  - package-ecosystem: "gomod"
-    directory: "/moduleb"
+      prefix: chore(modulea)
+  - package-ecosystem: gomod
+    directory: /moduleb
     schedule:
-      interval: "weekly"
+      interval: weekly
     commit-message:
-      prefix: "chore(moduleb)"
-
-  - package-ecosystem: "github-actions"
-    directory: "/"
+      prefix: chore(moduleb)
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "weekly"
+      interval: weekly
     commit-message:
-      prefix: "ci"
-      include: "scope"
+      prefix: ci
+      include: scope
+  - package-ecosystem: npm
+    directory: /.github/commitlint
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci
+      include: scope
+    groups:
+      commitlint:
+        patterns:
+          - '*'
